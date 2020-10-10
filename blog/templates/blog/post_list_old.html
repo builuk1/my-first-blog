@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+{#    <div>#}
+{#        <h1><a href="/">First Django Blog</a></h1>#}
+{#        <p>Title of First Post</p>#}
+{#        <p>First Post</p>#}
+{#    </div>#}
+{##}
+{#    <div>#}
+{#        <h1><a href="/">Second Django Blog</a></h1>#}
+{#        <p>Title of Second Post</p>#}
+{#        <p>Second Post</p>#}
+{#    </div>#}
+{#    <div>#}
+{#        <h1><a href="/">Trird Django Blog</a></h1>#}
+{#        <p>Title of Trird Post</p>#}
+{#        <p>Trird Post</p>#}
+{#    </div>#}
+{#    {{ posts }}#}
+{##}
+{#{% for post in posts %}#}
+{#    {{ post }}#}
+{#{% endfor %}#}
+{% extends 'blog/base.html' %}
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <h1><a href="/">{{post.title}}</a></h1>
+            <p>{{post.text}}</p>
+            <p>{{post.published_date}}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
+</body>
+</html>

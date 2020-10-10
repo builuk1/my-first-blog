@@ -1,0 +1,40 @@
+
+    {% extends 'blog/base.html' %}
+
+    {% block content %}
+
+<div class="col-md-9">
+          <!-- Title -->
+          <h2>{{post.title}}</h2>
+{#          <!-- Author -->#}
+{#          <p class="lead">#}
+{#            by#}
+{#            <a href="#">Rob Smith</a>#}
+{#          </p>#}
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_edit' pk=post.pk %}">
+                    <span class="glyphicon glyphicon-pencil">
+                        EDIT
+                    </span>
+                </a>
+            {% endif %}
+
+          <!-- Date/Time -->
+          <p>
+              {% if post.published_date %}
+
+                    {{post.published_date}}
+
+            {% endif %}
+          </p>
+
+{#          <!-- Preview Image -->#}
+{#          <img src="img/spider-post-01.png" class="img-fluid rounded" alt="Lego Spider-Man">#}
+{#          <!-- Post Content -->#}
+          <p class="lead">
+            {{post.text}}
+          </p>
+
+        </div>
+        <!-- /col-md-9 -->
+    {% endblock %}
